@@ -11,7 +11,7 @@ RUN apk add --no-cache git
 COPY package*.json ./
 
 # Install dependencies
-RUN npm ci --only=production
+RUN npm install
 
 # Copy all project files
 COPY . .
@@ -32,4 +32,4 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
   CMD wget --no-verbose --tries=1 --spider http://localhost:8545 || exit 1
 
 # Default command to start Hardhat node
-CMD ["npx", "hardhat", "node", "--hostname", "0.0.0.0"]
+CMD ["sh", "-c", "if [ -n \"$FORK_URL\" ]; then FORK_CMD=\"npx hardhat node --hostname 0.0.0.0 --fork $FORK_URL\"; if [ -n \"$FORK_BLOCK_NUMBER\" ]; then FORK_CMD=\"$FORK_CMD --fork-block-number $FORK_BLOCK_NUMBER\"; fi; eval $FORK_CMD; else npx hardhat node --hostname 0.0.0.0; fi"]

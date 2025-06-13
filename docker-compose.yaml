@@ -1,0 +1,27 @@
+services:
+  hardhat:
+    image: thembalakhengcongo/hardhat-node:latest
+    container_name: isibaya
+    ports:
+      - "8545:8545"
+    environment:
+      # Uncomment and add your RPC URL to fork a network
+      # FORK_URL: "https://mainnet.infura.io/v3/YOUR_INFURA_KEY"
+      # FORK_URL: "https://eth-mainnet.alchemyapi.io/v2/YOUR_ALCHEMY_KEY"
+      # FORK_URL: "https://polygon-mainnet.infura.io/v3/YOUR_INFURA_KEY"
+      
+      # Optional: Fork from specific block number
+      # FORK_BLOCK_NUMBER: "18500000"
+    networks:
+      - blockchain-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:8545"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+networks:
+  blockchain-network:
+    driver: bridge
