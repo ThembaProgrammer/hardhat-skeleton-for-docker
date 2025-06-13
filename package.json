@@ -1,0 +1,25 @@
+{
+  "name": "hardhat-skeleton-for-docker",
+  "version": "1.0.0",
+  "description": "I created this project so that I can run hardhat node on docker",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThembaProgrammer/hardhat-skeleton-for-docker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ThembaProgrammer/hardhat-skeleton-for-docker/issues"
+  },
+  "homepage": "https://github.com/ThembaProgrammer/hardhat-skeleton-for-docker#readme",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "hardhat": "^2.24.3"
+  }
+}
