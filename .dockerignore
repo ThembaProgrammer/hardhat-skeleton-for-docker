@@ -1,0 +1,44 @@
+# Node modules
+node_modules/
+npm-debug.log*
+
+# Hardhat files
+cache/
+artifacts/
+typechain/
+typechain-types/
+
+# Environment files
+.env
+.env.local
+.env.production
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Docker
+Dockerfile
+.dockerignore
+docker-compose.yml
+
+# Documentation
+README.md
+*.md
+
+# Coverage reports
+coverage/
+coverage.json
+
+# Logs
+*.log
