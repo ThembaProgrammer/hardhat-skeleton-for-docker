@@ -32,4 +32,4 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
   CMD wget --no-verbose --tries=1 --spider http://localhost:8545 || exit 1
 
 # Default command to start Hardhat node
-CMD ["sh", "-c", "if [ -n \"$FORK_URL\" ]; then FORK_CMD=\"npx hardhat node --hostname 0.0.0.0 --fork $FORK_URL\"; if [ -n \"$FORK_BLOCK_NUMBER\" ]; then FORK_CMD=\"$FORK_CMD --fork-block-number $FORK_BLOCK_NUMBER\"; fi; eval $FORK_CMD; else npx hardhat node --hostname 0.0.0.0; fi"]
+CMD ["sh", "-c", "BASE_CMD=\"npx hardhat node --hostname 0.0.0.0\";if [ -n \"$CHAIN_ID\" ]; then BASE_CMD=\"$BASE_CMD --config-chain-id $CHAIN_ID\"; fi; if [ -n \"$FORK_URL\" ]; then BASE_CMD=\"$BASE_CMD --fork $FORK_URL\"; if [ -n \"$FORK_BLOCK_NUMBER\" ]; then BASE_CMD=\"$BASE_CMD --fork-block-number $FORK_BLOCK_NUMBER\"; fi; fi; eval $BASE_CMD"]

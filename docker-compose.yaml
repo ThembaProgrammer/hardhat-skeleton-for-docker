@@ -1,6 +1,6 @@
 services:
   hardhat:
-    image: thembalakhengcongo/hardhat-node:latest
+    image: thembaprogrammer/hardhat-node:latest
     container_name: isibaya
     ports:
       - "8545:8545"
@@ -12,6 +12,9 @@ services:
       
       # Optional: Fork from specific block number
       # FORK_BLOCK_NUMBER: "18500000"
+      
+      # Optional: Custom chain ID (default is 31337)
+      # CHAIN_ID: "1337"
     networks:
       - blockchain-network
     restart: unless-stopped
